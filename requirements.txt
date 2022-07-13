@@ -1,0 +1,12 @@
+asgiref==3.5.2
+ccard==0.1.9
+cffi==1.15.1
+cryptography==37.0.4
+Django==4.0.6
+django-encrypted-model-fields==0.6.5
+Faker==13.15.0
+pycparser==2.21
+python-dateutil==2.8.2
+python-dotenv==0.20.0
+six==1.16.0
+sqlparse==0.4.2

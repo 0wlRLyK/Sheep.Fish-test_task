@@ -1,0 +1,72 @@
+[
+  {
+    "model": "app.activity",
+    "pk": 1,
+    "fields": {
+    "card": 1,
+    "category": 9,
+    "name": "Cafe activity",
+    "value": -500.00
+  }
+  },
+  {
+    "model": "app.activity",
+    "pk": 2,
+    "fields": {
+    "card": 1,
+    "category": 16,
+    "name": "Clothes activity",
+    "value": 500.00
+  }
+  },
+  {
+    "model": "app.activity",
+    "pk": 3,
+    "fields": {
+    "card": 1,
+    "category": 20,
+    "name": "Travels activity",
+    "value": -5000.00
+  }
+  },
+  {
+    "model": "app.activity",
+    "pk": 4,
+    "fields": {
+    "card": 1,
+    "category": 25,
+    "name": "ENTERTAINMENT activity",
+    "value": -9000.00
+  }
+  },
+  {
+    "model": "app.activity",
+    "pk": 5,
+    "fields": {
+    "card": 9,
+    "category": 9,
+    "name": "Cafe activity",
+    "value": -200.00
+  }
+  },
+  {
+    "model": "app.activity",
+    "pk": 6,
+    "fields": {
+    "card": 1,
+    "category": 9,
+    "name": "Products activity",
+    "value": -500.00
+  }
+  },
+{
+    "model": "app.activity",
+    "pk": 7,
+    "fields": {
+    "card": 1,
+    "category": 6,
+    "name": "Cash activity",
+    "value": 5000.00
+  }
+  }
+]

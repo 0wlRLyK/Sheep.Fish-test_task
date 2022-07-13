@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}Card detail{% endblock %}
+{% block breadcrumbs %}
+    <li aria-current="page">
+      <div class="flex items-center">
+        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+        <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">Card</span>
+      </div>
+    </li>
+{% endblock %}
+{% block content %}
+{% include "card_template.html" %}
+
+
+<div class="mt-10 bg-white rounded-lg border shadow-md sm:p-8 ">
+    <div class="flex justify-between items-center mb-4">
+        <h5 class="text-xl font-bold leading-none text-gray-900">Latest activities</h5>
+   </div>
+   <div class="flow-root">
+        <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+            {% for activity in object_list %}
+            <li class="py-4 sm:py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="h-8 w-8 flex justify-items-center">
+                        <i class="{{ activity.category_data.icon }}" style="color: {{ activity.category_data.color }}; font-size: 25px"></i>
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate">
+                            {{ activity.name }}
+                        </p>
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            {{ activity.date }}
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold" style="color: {{ activity.value_color }}">
+                        {{ activity.value }}
+                    </div>
+                </div>
+            </li>
+    {% endfor %}
+  {% if object_list %}
+  <div class="flex flex-col items-center">
+  <span class="text-sm text-gray-700 dark:text-gray-400">
+      Page <span class="font-semibold text-gray-900">{{ page_obj.number }}</span>  of <span class="font-semibold text-gray-900">{{ page_obj.paginator.num_pages }}</span>.
+  </span>
+  <div class="inline-flex mt-2 xs:mt-0">
+      {% if page_obj.has_previous %}
+      <a href="?page=1" class="py-2 px-4 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+          <<
+      </a>
+      <a href="?page={{ page_obj.previous_page_number }}" class="py-2 px-4 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+          <
+      </a>
+      {% endif %}
+      {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}" class="py-2 px-4 text-sm font-medium text-white bg-gray-800 rounded-r border-0 border-l border-gray-700 hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+          >
+      </a>
+      <a href="?page={{ page_obj.paginator.num_pages }}" class="py-2 px-4 text-sm font-medium text-white bg-gray-800 rounded-r border-0 border-l border-gray-700 hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+          >>
+      </a>
+     {% endif %}
+    </div>
+    </div>
+    {% endif %}
+        </ul>
+   </div>
+</div>
+
+
+
+{% endblock %}
